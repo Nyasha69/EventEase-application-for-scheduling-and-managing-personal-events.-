@@ -1,266 +1,208 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
+/* ========================================
+   EventEase - Todo Page Styles
+   Modern Dark Mode Dashboard
+   ======================================== */
+
+/* Main Container */
+.todo-container {
+  padding-top: 100px;
+  padding-bottom: var(--space-2xl);
+  min-height: calc(100vh - 80px);
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
 }
 
-body {
-    background-color: #333;
+/* Header Section */
+.todo-header {
+  text-align: center;
+  padding: var(--space-2xl) 0;
+  margin-bottom: var(--space-lg);
 }
 
-/* container title */
-.container-title {
-    font-size: 25px;
-    text-align: center;
-    margin: 0 0 30px 0;
-    color: white;
-    text-shadow: 3px 1px black;
+.todo-header .heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
 }
 
-/* container */
+.todo-header .subheading {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* Input Section */
+.todo-input-wrapper {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-md);
+}
+
 .inputcol {
-    display: grid;
-    column-gap: 5px;
-    grid-template-columns: 60% 10%;
-    justify-content: center;
-    margin-top: 10px;
-    
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-end;
 }
 
 .textarea {
-    min-height: 50px;
-    height: 50px;
-    max-width: 100%;
-    min-width: 100%;
-    border-radius: 10px;
-    border-color: #333;
-    font-size: 20px;
-    padding: 10px 10px;
-    overflow: auto;
-    overflow-x: hidden;
-}
-
-.textarea::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background-color: #333;
-}
-
-.textarea::-webkit-scrollbar {
-    width: 10px;
-    cursor: pointer;
-}
-
-.textarea::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: #8f8acc;
-    cursor: pointer;
+  flex: 1;
+  min-height: 60px;
+  max-height: 150px;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  resize: vertical;
+  transition: all var(--transition-normal);
 }
 
 .textarea:focus {
-    outline: none;
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.textarea::placeholder {
+  color: var(--text-muted);
 }
 
 .buttoninput {
-    border-radius: 10px;
-    border-color: #333;
-    background-color: white;
-    font-size: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-md);
+  font-size: 1.25rem;
+  flex-shrink: 0;
 }
 
-.buttoninput:hover {
-    background-color: #8f8acc;
-    color: white;
-}
-/* Links */
-a {
-    text-decoration: none;
-  }
-
-/* js */
+/* Todo List */
 .todolist {
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 
+/* Individual Todo Item */
 .itemall {
-    display: grid;
-    grid-template-columns: 60% 5% 5%;
-    justify-content: center;
-    margin-bottom: 2px;
+  display: flex;
+  align-items: stretch;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  animation: slideUp var(--transition-slow) ease-out;
 }
 
-.item, .check-button, .trash-button {
-    border: none;
-    background-color: white;
-    min-height: 50px;
-    padding: 10px 10px;
+.itemall:hover {
+  border-color: rgba(99, 102, 241, 0.2);
+  box-shadow: var(--shadow-md);
+  transform: translateX(4px);
 }
 
+/* Todo Text */
 .item {
-    word-wrap: break-word;
-    word-break: break-all;
-    border-radius: 10px 0 0 10px;
-    display: grid;
-    align-content: center;
-    font-size: 20px;
+  flex: 1;
+  padding: var(--space-lg);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  word-wrap: break-word;
+  transition: all var(--transition-normal);
 }
 
-.check-button, .trash-button {
-    font-size: 15px;
-}
-
+/* Todo Buttons */
+.check-button,
 .trash-button {
-    border-radius: 0 10px 10px 0;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
 .check-button:hover {
-    background-color: #37b3cc;
-    color: white;
+  background: var(--success);
+  color: white;
 }
 
 .trash-button:hover {
-    background-color: #6b73c1;
-    color: white;
+  background: var(--error);
+  color: white;
+}
+
+/* Checked State */
+.checklist .item {
+  text-decoration: line-through;
+  color: var(--text-muted);
 }
 
 .checklist {
-    text-decoration: line-through;
+  opacity: 0.7;
 }
 
-.fa-check, .fa-trash {
-    pointer-events: none;
+.checklist .check-button {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--success);
 }
 
-button, .check-button, .trash-button {
-    cursor: pointer;
+/* Icon pointer-events */
+.fa-check,
+.fa-trash {
+  pointer-events: none;
 }
-/* Navigation Bar */
-.nav {
-    background: #000;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 1rem;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
-  
-  .nav__list {
-    width: 100%;
-    margin: 0;
-  }
-  
-  .nav__item {
-    padding: 0.5rem 2rem;
-    border-bottom: 1px solid #222;
-  }
-  
-  .nav__item:last-of-type {
-    border-bottom: none;
-  }
-  
-  .nav__item > a {
-    color: #d2d0db;
-    transition: color 0.3s;
-  }
-  
-  .nav__item > a:hover {
-    color: #fff;
-  }
-  
-  .nav__toggler {
-    opacity: 0.5;
-    transition: box-shadow 0.15s;
-    cursor: pointer;
-  }
-  
-  .nav.collapsible--expanded .nav__toggler {
-    opacity: 1;
-    box-shadow: 0 0 0 3px #666;
-    border-radius: 5px;
-  }
-  
-  .nav__brand {
-    transform: translateY(5px);
-    width: 150px;
-  }
-  
-  @media screen and (min-width: 768px) {
-    .nav__toggler {
-      display: none;
-    }
-  
-    .nav__list {
-      width: auto;
-      display: flex;
-      font-size: 1.6rem;
-      max-height: 100%;
-      opacity: 1;
-    }
-  
-    .nav__item {
-      border: 0;
-    }
-  }
-  /* Footer */
+
+/* Footer */
 .footer {
-  background: #232323;
-  margin-top: 19.6rem;
+  background: var(--bg-secondary);
+  padding: var(--space-lg);
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: auto;
 }
 
-.footer a {
-  color: #777;
-  transition: color 0.3s;
-}
-
-.footer a:hover {
-  color: #fff;
-}
-
-.footer__section {
-  padding: 2rem;
-  border-bottom: 1px solid #000;
-}
-.footer__heading {
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 2.5rem;
-  line-height: 1.5;
-}
-a {
-  text-decoration: none;
-}
-@media screen and (min-width: 768px) {
-  .footer {
-    font-size: 1.5rem;
-  }
-  .footer__sections {
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+/* ========== Responsive ========== */
+@media screen and (max-width: 768px) {
+  .todo-container {
+    padding-top: 80px;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
   }
 
-  .footer .collapsible__chevron {
-    display: none;
+  .todo-header .heading {
+    font-size: 2rem;
   }
 
-  .footer .collapsible__content {
-    opacity: 1;
-    max-height: 100%;
+  .inputcol {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .footer__brand {
-    order: -1;
-    margin-top: 1rem;
+  .buttoninput {
+    width: 100%;
+    height: 50px;
   }
 
-  .footer__copyright {
-    font-size: 1.5rem;
+  .itemall {
+    flex-wrap: nowrap;
   }
 
-  .footer__section {
-    border: 0;
-  }
-
-  .footer__heading {
-    font-size: 1.6rem;
+  .check-button,
+  .trash-button {
+    width: 45px;
   }
 }

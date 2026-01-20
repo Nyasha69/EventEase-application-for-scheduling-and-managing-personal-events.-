@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/notes.css">
-    <title>Notes App</title>
-</head>
-<body>
 
-    <nav class="nav collapsible">
-        <ul class="list nav__list collapsible__content">
-          <li class="nav__item"><a href="index.html">Home</a></li>
-          <li class="nav__item"><a href="EventEase.html">EventEase</a></li>
-          <li class="nav__item"><a href="notes.html">Notes</a></li>
-          <li class="nav__item"><a href="todo.html">Todo</a></li>
-        </ul>
-      </nav>
-      <h2 class="heading">Create Notes</h2>
-    <button class="add" id="add">
-        <i class="fas fa-plus"></i>Add note
-    </button>
-      </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/11.1.1/marked.min.js" integrity="sha512-oSA0PdOBsyP4Cv5rIHOWhOr+H0ZPOE/L8UKaX33DjBFD+TrWOZZfewjg85Z7WhNPkQrHeTKOYSio/XM6FBPhWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="java/notes.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes - EventEase</title>
+  <meta name="description" content="Take notes with markdown support. Organize your thoughts beautifully.">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  <nav class="nav">
+    <ul class="nav__list">
+      <li class="nav__item"><a href="index.html">Home</a></li>
+      <li class="nav__item"><a href="EventEase.html">EventEase</a></li>
+      <li class="nav__item active"><a href="notes.html">Notes</a></li>
+      <li class="nav__item"><a href="todo.html">Todo</a></li>
+    </ul>
+  </nav>
+
+  <main class="notes-container">
+    <header class="notes-header">
+      <h1 class="heading">📝 My Notes</h1>
+      <p class="subheading">Capture your thoughts with markdown support</p>
+      <button class="btn-primary add" id="add">
+        <i class="fas fa-plus"></i> Add Note
+      </button>
+    </header>
+
+    <div class="notes-grid" id="notes-grid">
+      <!-- Notes will be dynamically added here -->
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/11.1.1/marked.min.js"
+    integrity="sha512-oSA0PdOBsyP4Cv5rIHOWhOr+H0ZPOE/L8UKaX33DjBFD+TrWOZZfewjg85Z7WhNPkQrHeTKOYSio/XM6FBPhWA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/notes.js"></script>
 </body>
+
 </html>
